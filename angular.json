@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -114,6 +115,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "zhanArztPraxix"
+    }
+  },
+  "defaultProject": "zhanArztPraxix",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
