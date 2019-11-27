@@ -1,18 +1,20 @@
-<div #stickyMenu>
-  {{sticky}}
-<mat-toolbar [ngClass]="sticky ? 'sticky' : ''">
+<div  class="header" [ngClass]="sticky ? 'sticky' : ''" #stickyMenu>
+<mat-toolbar >
   <mat-toolbar-row class="toolbar" >
     <!--<button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>-->
-    <h1>SimpleCRM</h1>
-    <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-button [routerLink]="'/activities'"> Activities </a>
-      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+    <div class="logo">
+      <app-logo></app-logo>
+      
+    </div>
+   
+    <div class="menu-items" >
+      <a mat-button [routerLink]="'/home'"> Praxis  </a>
+      <a mat-button [routerLink]="'/create-account'"> Leistungen </a>
+      <a mat-button [routerLink]="'/contacts'"> Patienten </a>
+      <a mat-button [routerLink]="'/create-contact'"> Neuigkeiten </a>
+      <a mat-button [routerLink]="'/kontakt'"> kontakt </a>
 
     </div>
   </mat-toolbar-row>
@@ -33,9 +35,16 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 88vh;">
-
+    <div class="content-page" [ngClass]="sticky ? 'content-page-scrolling' : ''">
+           
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
+  
 </mat-sidenav-container>
+<a href="javascript:toggleDrFlexAppointments()" class="booking--button">
+     <span class="booking--button-icon icon-calendar"></span> 
+     <span class="booking--button-label">Online Termin buchen</span>
+</a>
+
+<app-footer></app-footer>

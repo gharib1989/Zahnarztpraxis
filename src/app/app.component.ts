@@ -18,7 +18,7 @@ export class AppComponent  implements  OnInit , AfterViewInit {
 public handleScroll() : void {
         const windowScroll = window.pageYOffset;
        console.log(windowScroll);
-        if ( windowScroll >= this.menuPosition) {
+        if ( windowScroll > this.menuPosition) {
            this.sticky = true;
        } else {
            this.sticky = false;

@@ -1,0 +1,44 @@
+.praxis-continer{
+   width:100%;
+   overflow: hidden;
+  .praxix-main-cotainer{
+   position: relative;
+   width:100%;
+   height: 600px;
+   img{
+       width:100%;
+       height: 100%;
+   }
+   .praxix-main-cotainer-1-item{
+    position: absolute;
+    background-color: rgba(255, 254, 254, 0.8);
+    width: 553px;
+    height: 100px;
+    bottom: 159px;
+    left: 140px;
+    border-radius: 15px;
+   }
+   .praxix-main-cotainer-2-item{
+    position: absolute;
+    background-color: rgba(255, 254, 254, 0.8);
+    width: 553px;
+    height: 100px;
+    bottom: 50px;
+    right: 240px;
+    border-radius: 15px;
+}
+  }
+.content-root{
+    width: 100%;
+    height: 40px;
+    background-color: #d0a3e6;
+}
+}
+@media (max-width: 870px) {
+    .praxis-continer{
+    .praxix-main-cotainer-1-item ,.praxix-main-cotainer-2-item{
+        left: 10px !important;
+        width: 90% !important;
+    }
+}
+}

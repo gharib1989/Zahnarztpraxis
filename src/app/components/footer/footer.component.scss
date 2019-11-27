@@ -1,0 +1,28 @@
+.footer{
+    width: 100%;   
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #5a9509;
+    position: relative;
+    div{
+         width:25%;
+    }
+}
+
+@media (max-width: 690px) {
+    .footer{
+        text-align: center;
+        flex-direction: column;
+
+        div{
+            width:100%;
+        }
+        .footer-logo{
+           width: 100%;
+        }
+    }
+    }
