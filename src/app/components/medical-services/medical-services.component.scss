@@ -1,86 +1,112 @@
-.medical-service-container{
-    .medical-service-content{
-        margin-top: 40px;
-        height: 435px;
-        position: relative;
+.medical-service-container {
+  padding: 0 40px;
+  .medical-service-content {
+    margin-top: 40px;
+    height: 435px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    .left-content {
+      width: 33%;
+      height: 414px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 10px;
+      .item {
         display: flex;
-        flex-direction: row;
-        .left-content{
-            width: 33%;
-            height: 414px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 10px;
-            .item{
-                display: flex;
-                width:100%;
-                justify-content: space-between;
-                .item-icon{
-                    display: flex;
-                    justify-content: center;
-                    font-size: 38px;
-                    min-width: 45px;
-                    color: black;
-                    background-color: #5a9509;
-                    padding: 19px;
-                    border-radius: 50px;
-                }
-            }
+        width: 100%;
+        justify-content: space-between;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px -15px #5a9509;
+        .text-info {
+          padding: 0 5px;
+          font-size: 14px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 15px;
+          color: #000000;
+          font-weight: 650;
         }
-        .right-content{
-            width: 33%;
-            height: 414px;
-            top: 0px;
-            right: 0px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 10px;
-            .item{
-                display: flex;
-                width:100%;
-                justify-content: space-between;
-                .item-icon{
-                    display: flex;
-                    justify-content: center;
-                    font-size: 38px;
-                    min-width: 45px;
-                    color: black;
-                    background-color: #5a9509;
-                    padding: 19px;
-                    border-radius: 50px;
-                }
-            }
-       }
-        .img-content{
-            width: 33%;
-            height: 100%;
-          img{
-              width:100%
-          }
+        .item-icon {
+          display: flex;
+          justify-content: center;
+          font-size: 38px;
+          min-width: 45px;
+          color: black;
+          background-color: #5a9509;
+          padding: 19px;
+          border-radius: 50px;
+          box-shadow: 0 10px 30px -15px #5a9509;
         }
+      }
     }
+    .right-content {
+      width: 33%;
+      height: 414px;
+      top: 0px;
+      right: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 10px;
+      .item {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px -15px #5a9509;
+        .text-info {
+          padding: 0 5px;
+          font-size: 14px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 15px;
+          color: #000000;
+          font-weight: 650;
+        }
+        .item-icon {
+          display: flex;
+          justify-content: center;
+          font-size: 38px;
+          min-width: 45px;
+          color: black;
+          background-color: #5a9509;
+          padding: 19px;
+          border-radius: 50px;
+          box-shadow: 0 10px 30px -15px #5a9509;
+        }
+      }
+    }
+    .img-content {
+      width: 33%;
+      height: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media (max-width: 870px) {
-    .img-content{
-        display: none;
+  .img-content {
+    display: none;
+  }
+  .medical-service-container {
+    .medical-service-content {
+      height: auto;
+      flex-direction: column;
+      width: 96%;
+      .left-content {
+        width: 100%;
+      }
+      .right-content {
+        width: 100%;
+      }
     }
-    .medical-service-container{
-        
-        .medical-service-content{
-            height: auto;
-            flex-direction: column;
-            width: 96%;
-            .left-content{
-
-                width: 100%;
-            }
-            .right-content{
-                width: 100%;
-            }
-        }
-    }
-
+  }
 }

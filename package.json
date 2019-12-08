@@ -4,10 +4,17 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "start-local": "ng serve --configuration=local",
+    "build": "ng run CWIS:build:$environment",
     "test": "ng test",
+    "test:ci": "ng test --browsers ChromeHeadlessCI --code-coverage=true --watch=false",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "compile-tests": "cd \"e2e\" && tsc",
+    "e2e-test": "ng e2e",
+    "e2e": "npm run compile-tests && npm run e2e-test",
+    "format:fix": "pretty-quick --staged",
+    "precommit": "run-s format:fix lint",
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
   },
   "private": true,
   "dependencies": {
@@ -27,6 +34,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "hammerjs": "^2.0.8",
     "ngx-gallery": "^5.10.0",
+    "owl-ng": "^1.0.0-beta.19",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

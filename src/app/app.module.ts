@@ -4,7 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatButtonModule,
+} from '@angular/material';
 import { FooterComponent } from './components/footer/footer.component';
 import { PraxisComponent } from './components/praxis/praxis.component';
 import { SeparatorComponent } from './components/separator/separator.component';
@@ -15,6 +22,11 @@ import { QuiklinksComponent } from './components/footer/quiklinks/quiklinks.comp
 import { LogoComponent } from './components/logo/logo.component';
 import { AgmCoreModule } from '@agm/core';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
+import { LeistungenComponent } from './components/leistungen/leistungen.component';
+import { SubPageContentComponent } from './components/sub-page-content/sub-page-content.component';
+import { SubPageTapContentComponent } from './components/sub-page-tap-content/sub-page-tap-content.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { OwlAccordionModule } from 'owl-ng';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +37,10 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
     MedicalServicesComponent,
     QuiklinksComponent,
     LogoComponent,
-    KontaktComponent
+    KontaktComponent,
+    LeistungenComponent,
+    SubPageContentComponent,
+    SubPageTapContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,16 +48,19 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
     HttpClientModule,
     AppRoutingModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatTabsModule,
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
     MatIconModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
-    })
+      apiKey: '',
+    }),
+    OwlAccordionModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

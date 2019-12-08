@@ -1,28 +1,57 @@
-.footer{
-    width: 100%;   
-    padding-top: 20px;
-    padding-bottom: 20px;
-    overflow: hidden;
+.footer {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: white;
+  position: relative;
+  box-shadow: inset 0px 5px 8px -2px #5a9509;
+  div {
+    width: 25%;
+  }
+  .footer-logo {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #5a9509;
-    position: relative;
-    div{
-         width:25%;
+    flex-direction: column;
+    align-content: center;
+    width: 250px;
+    padding-top: 16px;
+    img {
+      width: 100%;
     }
+  }
 }
 
 @media (max-width: 690px) {
-    .footer{
-        text-align: center;
-        flex-direction: column;
+  .footer {
+    text-align: center;
+    flex-direction: column;
 
-        div{
-            width:100%;
-        }
-        .footer-logo{
-           width: 100%;
-        }
+    div {
+      width: 100%;
     }
+    .footer-logo {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      app-logo,
+      img {
+        position: relative;
+        width: 350px;
+        margin-left: 50%;
+        left: -175px;
+      }
     }
+    ::ng-deep .quik-links-box {
+      padding: 25px 0px;
+    }
+    ::ng-deep .shudle-box {
+      padding: 25px 0px;
+    }
+  }
+}

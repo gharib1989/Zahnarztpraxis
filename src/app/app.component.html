@@ -1,29 +1,124 @@
-<div  class="header" [ngClass]="sticky ? 'sticky' : ''" #stickyMenu>
-<mat-toolbar >
-  <mat-toolbar-row class="toolbar" >
-    <!--<button mat-icon-button>
+<div class="header" [ngClass]="sticky ? 'sticky' : ''" #stickyMenu>
+  <mat-toolbar>
+    <mat-toolbar-row class="toolbar">
+      <!--<button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>-->
-    <div class="logo">
-      <app-logo></app-logo>
-      
-    </div>
-   
-    <div class="menu-items" >
-      <a mat-button [routerLink]="'/home'"> Praxis  </a>
-      <a mat-button [routerLink]="'/create-account'"> Leistungen </a>
-      <a mat-button [routerLink]="'/contacts'"> Patienten </a>
-      <a mat-button [routerLink]="'/create-contact'"> Neuigkeiten </a>
-      <a mat-button [routerLink]="'/kontakt'"> kontakt </a>
+      <div class="logo">
+        <app-logo></app-logo>
+      </div>
 
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+      <div class="menu-items">
+        <div>
+          <a mat-button [routerLink]="'/home'" [class.active-link]="isLinkActive('/home')">
+            Praxis
+          </a>
+        </div>
+        <div class="menu-item-container">
+          <a mat-button [routerLink]="['/leistung', -1]" [class.active-link]="isLinkActive('/leistung')">
+            Leistungen
+          </a>
+          <div class="list" (click)="hideList($event)" *ngIf="isVisible">
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 0]"
+              [class.active-link-menu]="isLinkActive('/leistung/0')"
+            >
+              Prophylaxe
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 1]"
+              [class.active-link-menu]="
+                isLinkActive('/leistung/1') && !isLinkActive('/leistung/11') && !isLinkActive('/leistung/10')
+              "
+            >
+              Ästhetische Zahnmedizin
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 2]"
+              [class.active-link-menu]="isLinkActive('/leistung/2')"
+            >
+              Kinderzahnheilkunde
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 3]"
+              [class.active-link-menu]="isLinkActive('/leistung/3')"
+            >
+              Zahnheilkunde 60+
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 4]"
+              [class.active-link-menu]="isLinkActive('/leistung/4')"
+            >
+              Füllungen und Inlays
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 5]"
+              [class.active-link-menu]="isLinkActive('/leistung/5')"
+            >
+              Zahnersatz
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 6]"
+              [class.active-link-menu]="isLinkActive('/leistung/6')"
+            >
+              Zahnimplantate
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 7]"
+              [class.active-link-menu]="isLinkActive('/leistung/7')"
+            >
+              Oralchirurgie
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 8]"
+              [class.active-link-menu]="isLinkActive('/leistung/8')"
+            >
+              Parodontitisbehandlung
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 9]"
+              [class.active-link-menu]="isLinkActive('/leistung/9')"
+            >
+              Kiefergelenktherapie
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 10]"
+              [class.active-link-menu]="isLinkActive('/leistung/10')"
+            >
+              Zahnschienen
+            </div>
+            <div
+              class="list-item"
+              [routerLink]="['/leistung', 11]"
+              [class.active-link-menu]="isLinkActive('/leistung/11')"
+            >
+              Narkosebehandlung
+            </div>
+          </div>
+        </div>
+        <a mat-button [routerLink]="'/contacts'" [class.active-link]="isLinkActive('/contacts')"> Patienten </a>
+        <a mat-button [routerLink]="'/create-contact'" [class.active-link]="isLinkActive('/create-contact')">
+          Neuigkeiten
+        </a>
+        <a mat-button [routerLink]="'/kontakt'" [class.active-link]="isLinkActive('/kontakt')"> kontakt </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
-
       <a mat-list-item [routerLink]="'/accounts'"> Accounts </a>
       <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
       <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
@@ -31,20 +126,17 @@
       <a mat-list-item [routerLink]="'/activities'"> Activities </a>
       <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
       <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content-page" [ngClass]="sticky ? 'content-page-scrolling' : ''">
-           
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
-  
 </mat-sidenav-container>
 <a href="javascript:toggleDrFlexAppointments()" class="booking--button">
-     <span class="booking--button-icon icon-calendar"></span> 
-     <span class="booking--button-label">Online Termin buchen</span>
+  <span class="booking--button-icon icon-calendar"></span>
+  <span class="booking--button-label">Online Termin buchen</span>
 </a>
 
 <app-footer></app-footer>

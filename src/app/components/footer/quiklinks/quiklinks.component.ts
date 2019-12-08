@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-quiklinks',
   templateUrl: './quiklinks.component.html',
-  styleUrls: ['./quiklinks.component.scss']
+  styleUrls: ['./quiklinks.component.scss'],
 })
 export class QuiklinksComponent implements OnInit {
-  faCaretRight = faCaretRight
-  ;
-  constructor() { }
+  faCaretRight = faCaretRight;
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
