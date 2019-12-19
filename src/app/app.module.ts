@@ -27,6 +27,8 @@ import { SubPageContentComponent } from './components/sub-page-content/sub-page-
 import { SubPageTapContentComponent } from './components/sub-page-tap-content/sub-page-tap-content.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { OwlAccordionModule } from 'owl-ng';
+import { UberUnsComponent } from './components/uber-uns/uber-uns.component';
+import { NeuigkeitenComponent } from './components/neuigkeiten/neuigkeiten.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,8 @@ import { OwlAccordionModule } from 'owl-ng';
     LeistungenComponent,
     SubPageContentComponent,
     SubPageTapContentComponent,
+    UberUnsComponent,
+    NeuigkeitenComponent,
   ],
   imports: [
     BrowserModule,

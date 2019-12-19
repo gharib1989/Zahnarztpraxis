@@ -25,7 +25,7 @@
     .menu-item-container {
       position: relative;
       .list {
-        padding: 5px 5px 5px 0px;
+        padding: 0px 5px 5px 0px;
         position: absolute;
         min-width: 200px;
         background-color: white;
@@ -120,6 +120,14 @@
   -moz-box-shadow: 0 10px 30px -15px #5a9509;
   box-shadow: 0 10px 30px -15px #5a9509;
   z-index: 10;
+  marquee {
+    line-height: normal;
+    min-height: 20px;
+    padding: 2px 0;
+    background-color: #5a9509;
+    color: white;
+    margin-bottom: -2px;
+  }
 }
 
 .sticky {
@@ -141,7 +149,7 @@
   }
 }
 .content-page {
-  min-height: 80vh;
+  min-height: 30vh;
   text-align: center;
 }
 .content-page-scrolling {
@@ -170,6 +178,7 @@
       width: 100%;
       height: auto;
       display: flex;
+      margin-bottom: -3px;
       justify-content: center;
       flex-direction: row;
       a {
@@ -226,7 +235,6 @@
   }
   .toolbar {
     .menu-items {
-      justify-content: space-around;
       a {
         justify-content: center;
         width: auto;

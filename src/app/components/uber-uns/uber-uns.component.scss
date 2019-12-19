@@ -17,17 +17,27 @@
   line-height: normal;
   font-size: 16px;
 }
-.title-tabs {
-  width: 400px;
-  margin: 10px;
-  text-align: left;
-  font-size: 17px;
-  font-weight: bolder;
-  background-color: #5a9509;
-  color: white;
-  z-index: 2000;
-  align-items: center;
-  padding: 8px;
+.container-uberUns-page {
+  .title-tabs {
+    width: 400px;
+    margin: 10px;
+    text-align: left;
+    font-size: 17px;
+    font-weight: bolder;
+    background-color: #5a9509;
+    color: white;
+    z-index: 2000;
+    align-items: center;
+    padding: 8px;
+  }
+  .details-title {
+    line-height: normal;
+    text-align: left;
+    margin-left: 25px;
+    margin-top: 2px;
+    padding: 5px;
+    background-color: #5a950952;
+  }
 }
 .content-tab {
   padding: 5px 38px;
@@ -36,8 +46,8 @@
   .content-tab-img-container {
     width: 50%;
     img {
-      max-height: 400px;
       width: 70%;
+      max-height: 400px;
     }
   }
   .content-tab-details-container {
@@ -98,5 +108,6 @@
   }
   .sub-page-tap-continer {
     padding: 34px 25px;
+    flex-direction: column;
   }
 }

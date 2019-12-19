@@ -17,7 +17,6 @@
       font-size: 30px;
       padding: 25px;
       border-radius: 15px;
-      animation: anim1 0.5s linear alternate;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,7 +29,6 @@
       bottom: 50px;
       right: 340px;
       border-radius: 15px;
-      animation: anim2 0.5s linear alternate;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -43,49 +41,13 @@
   }
 }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes anim2 {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: 340px;
-  }
-}
-
-/* Standard syntax */
-@keyframes anim2 {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: 340px;
-  }
-}
-
-@-webkit-keyframes anim1 {
-  0% {
-    left: -140px;
-  }
-  100% {
-    left: 200px;
-  }
-}
-
-@keyframes anim1 {
-  0% {
-    left: -140px;
-  }
-  100% {
-    left: 200px;
-  }
-}
-@media (max-width: 870px) {
+@media (max-width: 570px) {
   .praxis-continer {
     .praxix-main-cotainer-1-item,
     .praxix-main-cotainer-2-item {
-      left: 10px !important;
-      width: 90% !important;
+      margin-left: 50%;
+      left: -118px !important;
+      width: 200px !important;
     }
   }
 }

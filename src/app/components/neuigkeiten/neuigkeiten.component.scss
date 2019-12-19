@@ -33,7 +33,6 @@
   .details-title {
     line-height: normal;
     text-align: left;
-    margin-left: 25px;
     margin-top: 2px;
     padding: 5px;
     background-color: #5a950952;
@@ -42,6 +41,19 @@
       font-weight: 600;
       padding: 4px;
     }
+  }
+}
+.title-section {
+  text-align: left;
+  display: flex;
+  color: #5a9509;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 0;
+  margin-left: 14px;
+  fa-icon {
+    padding: 0 5px;
+    font-size: 14px;
   }
 }
 @media (max-width: 950px) {
