@@ -1,0 +1,15 @@
+.admin-container {
+  padding: 30px;
+  .section-admin-title {
+    text-align: left;
+    padding: 20px;
+    font-weight: 600;
+    background-color: #85b598;
+  }
+  .section-admin-container {
+    background-color: #5a95092e;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+}

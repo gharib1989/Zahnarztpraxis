@@ -1,0 +1,50 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+<div class="admin-container" *ngIf="!loading">
+  <div class="section-admin-title">Add message :</div>
+
+  <div class="section-admin-container">
+    <textarea matInput [(ngModel)]="news.text" placeholder="write message"></textarea>
+    <button mat-stroked-button (click)="updateMessage()">update</button>
+  </div>
+  <div class="section-admin-title">Sprechzeiten :</div>
+
+  <div class="section-admin-container">
+    <div>
+      saturaday : from
+      <input type="time" [value]="sprechZeit.sat[0]" (click)="open('sat-from')" />
+      to <input type="time" [value]="sprechZeit.sat[1]" (click)="open('sat-to')" />
+    </div>
+    <div>
+      sunday : from
+      <input type="time" [value]="sprechZeit.sun[0]" (click)="open('sun-from')" />
+      to <input type="time" [value]="sprechZeit.sun[1]" (click)="open('sun-to')" />
+    </div>
+    <div>
+      monday : from
+      <input type="time" [value]="sprechZeit.mon[0]" (click)="open('mon-from')" />
+      to <input type="time" [value]="sprechZeit.mon[1]" (click)="open('mon-to')" />
+    </div>
+    <div>
+      tuesday : from
+      <input type="time" [value]="sprechZeit.tus[0]" (click)="open('tus-from')" />
+      to <input type="time" [value]="sprechZeit.tus[1]" (click)="open('tus-to')" />
+    </div>
+    <div>
+      wednesday : from
+      <input type="time" [value]="sprechZeit.wed[0]" (click)="open('wed-from')" />
+      to <input type="time" [value]="sprechZeit.wed[1]" (click)="open('wed-to')" />
+    </div>
+    <div>
+      thursday : from
+      <input type="time" [value]="sprechZeit.thu[0]" (click)="open('thu-from')" />
+      to <input type="time" [value]="sprechZeit.thu[1]" (click)="open('thu-to')" />
+    </div>
+    <div>
+      friday : from
+      <input type="time" [value]="sprechZeit.fri[0]" (click)="open('fri-from')" />
+      to <input type="time" [value]="sprechZeit.fri[1]" (click)="open('fri-to')" />
+    </div>
+
+    <button mat-stroked-button (click)="updateSprechZeiten()">update</button>
+  </div>
+</div>

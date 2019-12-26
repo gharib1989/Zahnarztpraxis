@@ -1,5 +1,9 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from './shared/services/auth.service';
+import { FirebaseService } from './services/firebase.service';
+import { News } from './components/model/news';
+import { DocumentChangeAction } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +16,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   public sticky: boolean = false;
   public isVisible: boolean = true;
   public menuPosition: any;
-  constructor(private router: Router) {}
+  public news: News = {
+    id: '',
+    text: '',
+  } as News;
+  constructor(
+    private router: Router, // private authService: AuthService,
+    private firebaseService: FirebaseService,
+  ) {}
   public ngAfterViewInit(): void {
     this.menuPosition = this.menuElement.nativeElement.offsetTop;
   }
@@ -36,6 +47,19 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
   public ngOnInit(): void {
+    // if (!this.authService.isLoggedIn) {
+    //   this.authService.GoogleAuth();
+    // }
+
+    this.firebaseService.getNews().subscribe((actionArray: DocumentChangeAction<News>[]) => {
+      this.news =
+        actionArray.length > 0
+          ? ({
+              id: actionArray[actionArray.length - 1].payload.doc.id,
+              text: actionArray[actionArray.length - 1].payload.doc.data().text,
+            } as News)
+          : null;
+    });
     this.router.events.subscribe(evt => {
       if (!(evt instanceof NavigationEnd)) {
         return;
