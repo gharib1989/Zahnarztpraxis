@@ -87,15 +87,28 @@ export class AuthService {
   }
 
   // Sign in with Google
-  public GoogleAuth(): Promise<void> {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+  public GoogleAuth(): void {
+    this.afAuth.auth
+      .getRedirectResult()
+      .then((result: any) => {
+        console.log(result);
+        this.ngZone.run(() => {
+          this.router.navigate(['admin']);
+        });
+        this.SetUserData(result.user);
+      })
+      .catch(error => {
+        this.AuthLogin(new auth.GoogleAuthProvider());
+      });
   }
 
   // Auth logic to run auth providers
-  public AuthLogin(provider: any): Promise<void> {
-    return this.afAuth.auth
-      .signInWithRedirect(provider)
+  public AuthLogin(provider: any): void {
+    this.afAuth.auth.signInWithRedirect(provider);
+    this.afAuth.auth
+      .getRedirectResult()
       .then((result: any) => {
+        console.log(result);
         this.ngZone.run(() => {
           this.router.navigate(['admin']);
         });

@@ -20,10 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     id: '',
     text: '',
   } as News;
-  constructor(
-    private router: Router, // private authService: AuthService,
-    private firebaseService: FirebaseService,
-  ) {}
+  constructor(private router: Router, private authService: AuthService, private firebaseService: FirebaseService) {}
   public ngAfterViewInit(): void {
     this.menuPosition = this.menuElement.nativeElement.offsetTop;
   }
@@ -47,9 +44,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
   public ngOnInit(): void {
-    // if (!this.authService.isLoggedIn) {
-    //   this.authService.GoogleAuth();
-    // }
+    if (!this.authService.isLoggedIn) {
+      this.authService.GoogleAuth();
+    }
 
     this.firebaseService.getNews().subscribe((actionArray: DocumentChangeAction<News>[]) => {
       this.news =
