@@ -17,6 +17,10 @@
   line-height: normal;
   font-size: 16px;
 }
+.details-title {
+  text-align: left;
+  padding: 10px 25px;
+}
 .container-uberUns-page {
   .title-tabs {
     width: 400px;
@@ -30,7 +34,7 @@
     align-items: center;
     padding: 8px;
   }
-  .details-title {
+  .details-title-sprechzeiten {
     line-height: normal;
     text-align: left;
     margin-left: 25px;
@@ -42,6 +46,18 @@
       font-weight: 600;
       padding: 4px;
     }
+    .days {
+      display: flex;
+      flex-direction: row;
+      p {
+        width: 100px;
+        margin: 5px;
+        font-weight: 600;
+      }
+      div {
+        margin: 5px;
+      }
+    }
   }
 }
 @media (max-width: 950px) {
@@ -52,8 +68,12 @@
       margin-left: 0px;
       width: auto;
     }
-    .details-title {
+    .details-title-sprechzeiten {
       margin-left: 5px;
     }
   }
+}
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #5a9509 !important;
 }

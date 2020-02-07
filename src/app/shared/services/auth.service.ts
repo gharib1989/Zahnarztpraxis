@@ -10,7 +10,7 @@ import { User } from './user';
 })
 export class AuthService {
   public userData: any; // Save logged in user data
-
+  public waitToken: boolean = true;
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -24,10 +24,14 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
+        this.SetUserData(user);
+
+        this.router.navigate(['admin']);
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
+      this.waitToken = false;
     });
   }
 
@@ -36,9 +40,10 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(result => {
-        this.ngZone.run(() => {
-          this.router.navigate(['admin']);
-        });
+        if (!result.user.emailVerified) {
+          this.SendVerificationMail();
+        }
+        this.router.navigate(['admin']);
         this.SetUserData(result.user);
       })
       .catch(error => {
@@ -53,7 +58,7 @@ export class AuthService {
       .then(result => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        this.SendVerificationMail();
+        // this.SendVerificationMail();
         this.SetUserData(result.user);
       })
       .catch(error => {
@@ -81,42 +86,28 @@ export class AuthService {
   }
 
   // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
   // Sign in with Google
-  public GoogleAuth(): void {
+  public GoogleAuth(): boolean {
     this.afAuth.auth
       .getRedirectResult()
       .then((result: any) => {
-        console.log(result);
-        this.ngZone.run(() => {
-          this.router.navigate(['admin']);
-        });
+        this.router.navigate(['admin']);
         this.SetUserData(result.user);
+        return this.waitToken;
       })
-      .catch(error => {
-        this.AuthLogin(new auth.GoogleAuthProvider());
-      });
+      .catch(error => {});
+    this.AuthLogin(new auth.GoogleAuthProvider());
+    return this.waitToken;
   }
 
   // Auth logic to run auth providers
   public AuthLogin(provider: any): void {
     this.afAuth.auth.signInWithRedirect(provider);
-    this.afAuth.auth
-      .getRedirectResult()
-      .then((result: any) => {
-        console.log(result);
-        this.ngZone.run(() => {
-          this.router.navigate(['admin']);
-        });
-        this.SetUserData(result.user);
-      })
-      .catch(error => {
-        window.alert(error);
-      });
   }
 
   /* Setting up user data when sign in with username/password, 

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     id: '',
     text: '',
   } as News;
-  constructor(private router: Router, private authService: AuthService, private firebaseService: FirebaseService) {}
+  constructor(public authService: AuthService, private router: Router, private firebaseService: FirebaseService) {}
   public ngAfterViewInit(): void {
     this.menuPosition = this.menuElement.nativeElement.offsetTop;
   }
@@ -36,18 +36,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   @HostListener('window:scroll', ['$event'])
   public handleScroll(): void {
     const windowScroll = window.pageYOffset;
-    console.log(windowScroll);
     if (windowScroll > this.menuPosition) {
       this.sticky = true;
     } else {
       this.sticky = false;
     }
   }
+  public logOut(): void {
+    this.authService.SignOut();
+  }
   public ngOnInit(): void {
-    if (!this.authService.isLoggedIn) {
-      this.authService.GoogleAuth();
-    }
-
     this.firebaseService.getNews().subscribe((actionArray: DocumentChangeAction<News>[]) => {
       this.news =
         actionArray.length > 0
@@ -57,6 +55,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             } as News)
           : null;
     });
+
     this.router.events.subscribe(evt => {
       if (!(evt instanceof NavigationEnd)) {
         return;

@@ -135,9 +135,9 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<a href="javascript:toggleDrFlexAppointments()" class="booking--button">
+<a *ngIf="authService.isLoggedIn()" (click)="logOut()" class="booking--button">
   <span class="booking--button-icon icon-calendar"></span>
-  <span class="booking--button-label">Online Termin buchen</span>
+  <span class="booking--button-label">logout</span>
 </a>
 
 <app-footer></app-footer>

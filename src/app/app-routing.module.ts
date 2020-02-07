@@ -8,12 +8,14 @@ import { NeuigkeitenComponent } from './components/neuigkeiten/neuigkeiten.compo
 import { AuthGuard } from './shared/guard/auth.guard';
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 import { AdminComponent } from './components/admin/admin.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: PraxisComponent },
   { path: 'kontakt', component: KontaktComponent },
   { path: 'leistung/:id', component: LeistungenComponent },
   { path: 'uberUns', component: UberUnsComponent },
+  { path: 'login', component: LogInComponent },
   {
     path: 'admin',
     component: AdminComponent,

@@ -11,6 +11,21 @@ import {
   MatSidenavModule,
   MatListModule,
   MatButtonModule,
+  MatCheckboxModule,
+  MatProgressSpinnerModule,
+  MatBadgeModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatChipsModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatCardModule,
 } from '@angular/material';
 import { FooterComponent } from './components/footer/footer.component';
 import { PraxisComponent } from './components/praxis/praxis.component';
@@ -37,12 +52,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxLoadingModule } from 'ngx-loading';
 import { FileSizePipe } from './pipe/file-size.pipe';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { DropZoneDirective } from './services/drop-zone.directive';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { CommonModule } from '@angular/common';
 const firebaseConfig = {
   apiKey: 'AIzaSyCu-ZnSdQMtCD-ElWQLvv8SpP0rk363-Lc',
   authDomain: 'firstexample-fbd17.firebaseapp.com',
@@ -73,8 +90,10 @@ const firebaseConfig = {
     DropZoneDirective,
     FileSizePipe,
     FileUploadComponent,
+    LogInComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -98,6 +117,28 @@ const firebaseConfig = {
     AngularFireAuthModule,
     FormsModule,
     AmazingTimePickerModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatListModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [AngularFirestore, AngularFireAuth, AngularFireDatabase],
   bootstrap: [AppComponent],

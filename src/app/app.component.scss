@@ -79,9 +79,9 @@
   font-size: 9.6px;
   font-size: 16px;
   line-height: 20px;
-  background-color: #5a9509;
+  background-color: #e02416;
   color: white;
-  box-shadow: 0 10px 30px 4px #5a9509;
+  box-shadow: 0 10px 30px 4px #e02416;
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
@@ -189,9 +189,9 @@
   .menu-item-container {
     position: relative;
     .list {
-      font-size: 8px;
+      font-size: 8px !important;
       .list-item {
-        padding: 2px 8px;
+        padding: 2px 8px !important;
       }
     }
   }

@@ -1,15 +1,21 @@
 <div class="sub-page-tap-continer">
-  <iframe
-    width="100%"
-    height="500"
-    id="gmap_canvas"
-    src="https://maps.google.com/maps?q=Frau%20Dr.%20medic.%20(R)%20Cornelia%20Patai-Szabo&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    frameborder="0"
-    scrolling="no"
-    marginheight="0"
-    marginwidth="0"
-  ></iframe>
-
+  <div>
+    <div *ngIf="isLoading" class="spinner-conatainer ">
+      <mat-spinner strokeWidth="3" [diameter]="50"></mat-spinner>
+    </div>
+    <iframe
+      #myIframe
+      (load)="onLoadFunc()"
+      width="100%"
+      [height]="isLoading ? 0 : 400"
+      id="gmap_canvas"
+      src="https://maps.google.com/maps?q=Frau%20Dr.%20medic.%20(R)%20Cornelia%20Patai-Szabo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      frameborder="0"
+      scrolling="no"
+      marginheight="0"
+      marginwidth="0"
+    ></iframe>
+  </div>
   <div style="padding: 10px;">
     <div class="title-page">Über uns</div>
     <div class="description">Gemeinschaftspraxis Fr. Patai und Fr. Dr. Patai</div>
@@ -22,9 +28,42 @@
         E-Mail: praxis@patai.de <br />Internet: www.patai.de
       </div>
       <div class="title-tabs">Sprechzeiten</div>
-      <div class="details-title">
-        <span>Montag, Dienstag und Donnerstag : </span> von 08:00 - 19:00 Uhr<br />
-        <span>Mittwoch : </span>von 08:00 - 15:00 Uhr <br /><span>Freitag : </span>von 08:00 - 18:00 Uhr
+      <div class="details-title-sprechzeiten">
+        <div class="days">
+          <p>Montag :</p>
+          <div *ngIf="sprechZeit.mon[2]">{{ sprechZeit.mon[0] }} - {{ sprechZeit.mon[1] }}</div>
+          <div *ngIf="!sprechZeit.mon[2]">Geschlossen</div>
+        </div>
+        <div class="days">
+          <p>Dienstag :</p>
+          <div *ngIf="sprechZeit.tus[2]">{{ sprechZeit.tus[0] }} - {{ sprechZeit.tus[1] }}</div>
+          <div *ngIf="!sprechZeit.tus[2]">Geschlossen</div>
+        </div>
+        <div class="days">
+          <p>Mittwoch :</p>
+          <div *ngIf="sprechZeit.wed[2]">{{ sprechZeit.wed[0] }} - {{ sprechZeit.wed[1] }}</div>
+          <div *ngIf="!sprechZeit.wed[2]">Geschlossen</div>
+        </div>
+        <div class="days">
+          <p>Donnerstag :</p>
+          <div *ngIf="sprechZeit.thu[2]">{{ sprechZeit.thu[0] }} - {{ sprechZeit.thu[1] }}</div>
+          <div *ngIf="!sprechZeit.thu[2]">Geschlossen</div>
+        </div>
+        <div class="days">
+          <p>Freitag :</p>
+          <div *ngIf="sprechZeit.fri[2]">{{ sprechZeit.fri[0] }} - {{ sprechZeit.fri[1] }}</div>
+          <div *ngIf="!sprechZeit.fri[2]">Geschlossen</div>
+        </div>
+        <div class="days">
+          <p>Samstag :</p>
+          <div *ngIf="sprechZeit.sat[2]">{{ sprechZeit.sat[0] }} - {{ sprechZeit.sat[1] }}</div>
+          <div *ngIf="!sprechZeit.sat[2]">Geschlossen</div>
+        </div>
+        <div class="days">
+          <p>Suntag :</p>
+          <div *ngIf="sprechZeit.sun[2]">{{ sprechZeit.sun[0] }} - {{ sprechZeit.sun[1] }}</div>
+          <div *ngIf="!sprechZeit.sun[2]">Geschlossen</div>
+        </div>
       </div>
     </div>
   </div>

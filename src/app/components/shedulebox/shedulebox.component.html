@@ -13,12 +13,42 @@
         </div>
         <p>Sprechzeiten</p>
         <div  class="adress-details">
-            Montag, Dienstag und Donnerstag<br>
-               von 08:00 - 19:00 Uhr<br>
-            Mittwoch<br>
-            von 08:00 - 15:00 Uhr<br>
-            Freitag<br>
-           von 08:00 - 18:00 Uhr<br>
+         <div class="days">
+            <p>Montag :</p>
+            <div *ngIf="sprechZeit.mon[2]">{{ sprechZeit.mon[0] }} - {{ sprechZeit.mon[1] }}</div>
+            <div *ngIf="!sprechZeit.mon[2]">Geschlossen</div>
+          </div>
+          <div class="days">
+            <p>Dienstag :</p>
+            <div *ngIf="sprechZeit.tus[2]">{{ sprechZeit.tus[0] }} - {{ sprechZeit.tus[1] }}</div>
+            <div *ngIf="!sprechZeit.tus[2]">Geschlossen</div>
+          </div>
+          <div class="days">
+            <p>Mittwoch :</p>
+            <div *ngIf="sprechZeit.wed[2]">{{ sprechZeit.wed[0] }} - {{ sprechZeit.wed[1] }}</div>
+            <div *ngIf="!sprechZeit.wed[2]">Geschlossen</div>
+          </div>
+          <div class="days">
+            <p>Donnerstag :</p>
+            <div *ngIf="sprechZeit.thu[2]">{{ sprechZeit.thu[0] }} - {{ sprechZeit.thu[1] }}</div>
+            <div *ngIf="!sprechZeit.thu[2]">Geschlossen</div>
+          </div>
+          <div class="days">
+            <p>Freitag :</p>
+            <div *ngIf="sprechZeit.fri[2]">{{ sprechZeit.fri[0] }} - {{ sprechZeit.fri[1] }}</div>
+            <div *ngIf="!sprechZeit.fri[2]">Geschlossen</div>
+          </div>
+          <div class="days">
+            <p>Samstag :</p>
+            <div *ngIf="sprechZeit.sat[2]">{{ sprechZeit.sat[0] }} - {{ sprechZeit.sat[1] }}</div>
+            <div *ngIf="!sprechZeit.sat[2]">Geschlossen</div>
+          </div>
+          <div class="days">
+            <p>Suntag :</p>
+            <div *ngIf="sprechZeit.sun[2]">{{ sprechZeit.sun[0] }} - {{ sprechZeit.sun[1] }}</div>
+            <div *ngIf="!sprechZeit.sun[2]">Geschlossen</div>
+          </div>
+        
         </div>
      </div>
 

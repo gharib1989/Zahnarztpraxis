@@ -4,6 +4,7 @@ import { News } from '../model/news';
 import { DocumentChangeAction } from '@angular/fire/firestore';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { SprechZeit } from '../model/day';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,13 +15,13 @@ export class AdminComponent implements OnInit {
   public loading: boolean = true;
   public news: News;
   public sprechZeit: SprechZeit = {
-    sat: ['18:30', '18:30'],
-    sun: ['18:30', '18:30'],
-    mon: ['18:30', '18:30'],
-    tus: ['18:30', '18:30'],
-    wed: ['18:30', '18:30'],
-    thu: ['18:30', '18:30'],
-    fri: ['18:30', '18:30'],
+    sat: ['18:30', '18:30', true],
+    sun: ['18:30', '18:30', true],
+    mon: ['18:30', '18:30', true],
+    tus: ['18:30', '18:30', true],
+    wed: ['18:30', '18:30', true],
+    thu: ['18:30', '18:30', true],
+    fri: ['18:30', '18:30', true],
   };
   constructor(private firebaseService: FirebaseService, private atp: AmazingTimePickerService) {}
   public updateMessage(): void {

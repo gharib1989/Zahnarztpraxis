@@ -1,50 +1,74 @@
-<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+<div *ngIf="loading" class="spinner-conatainer">
+  <mat-spinner strokeWidth="3" [diameter]="50"></mat-spinner>
+</div>
 <div class="admin-container" *ngIf="!loading">
   <div class="section-admin-title">Add message :</div>
 
   <div class="section-admin-container">
     <textarea matInput [(ngModel)]="news.text" placeholder="write message"></textarea>
-    <button mat-stroked-button (click)="updateMessage()">update</button>
+    <button class="button" (click)="updateMessage()">update</button>
   </div>
   <div class="section-admin-title">Sprechzeiten :</div>
 
   <div class="section-admin-container">
-    <div>
-      saturaday : from
-      <input type="time" [value]="sprechZeit.sat[0]" (click)="open('sat-from')" />
-      to <input type="time" [value]="sprechZeit.sat[1]" (click)="open('sat-to')" />
+    <div class="row">
+      <p>saturaday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.sat[0]" (click)="open('sat-from')" />
+        to
+        <input type="time" [value]="sprechZeit.sat[1]" (click)="open('sat-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.sat[2]">Open!</mat-checkbox>
+      </div>
     </div>
-    <div>
-      sunday : from
-      <input type="time" [value]="sprechZeit.sun[0]" (click)="open('sun-from')" />
-      to <input type="time" [value]="sprechZeit.sun[1]" (click)="open('sun-to')" />
+    <div class="row">
+      <p>sunday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.sun[0]" (click)="open('sun-from')" />
+        to <input type="time" [value]="sprechZeit.sun[1]" (click)="open('sun-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.sun[2]">Open!</mat-checkbox>
+      </div>
     </div>
-    <div>
-      monday : from
-      <input type="time" [value]="sprechZeit.mon[0]" (click)="open('mon-from')" />
-      to <input type="time" [value]="sprechZeit.mon[1]" (click)="open('mon-to')" />
+    <div class="row">
+      <p>monday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.mon[0]" (click)="open('mon-from')" />
+        to <input type="time" [value]="sprechZeit.mon[1]" (click)="open('mon-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.mon[2]">Open!</mat-checkbox>
+      </div>
     </div>
-    <div>
-      tuesday : from
-      <input type="time" [value]="sprechZeit.tus[0]" (click)="open('tus-from')" />
-      to <input type="time" [value]="sprechZeit.tus[1]" (click)="open('tus-to')" />
+    <div class="row">
+      <p>tuesday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.tus[0]" (click)="open('tus-from')" />
+        to <input type="time" [value]="sprechZeit.tus[1]" (click)="open('tus-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.tus[2]">Open!</mat-checkbox>
+      </div>
     </div>
-    <div>
-      wednesday : from
-      <input type="time" [value]="sprechZeit.wed[0]" (click)="open('wed-from')" />
-      to <input type="time" [value]="sprechZeit.wed[1]" (click)="open('wed-to')" />
+    <div class="row">
+      <p>wednesday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.wed[0]" (click)="open('wed-from')" />
+        to <input type="time" [value]="sprechZeit.wed[1]" (click)="open('wed-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.wed[2]">Open!</mat-checkbox>
+      </div>
     </div>
-    <div>
-      thursday : from
-      <input type="time" [value]="sprechZeit.thu[0]" (click)="open('thu-from')" />
-      to <input type="time" [value]="sprechZeit.thu[1]" (click)="open('thu-to')" />
+    <div class="row">
+      <p>thursday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.thu[0]" (click)="open('thu-from')" />
+        to <input type="time" [value]="sprechZeit.thu[1]" (click)="open('thu-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.thu[2]">Open!</mat-checkbox>
+      </div>
     </div>
-    <div>
-      friday : from
-      <input type="time" [value]="sprechZeit.fri[0]" (click)="open('fri-from')" />
-      to <input type="time" [value]="sprechZeit.fri[1]" (click)="open('fri-to')" />
+    <div class="row">
+      <p>friday :</p>
+      <div>
+        <input type="time" [value]="sprechZeit.fri[0]" (click)="open('fri-from')" />
+        to <input type="time" [value]="sprechZeit.fri[1]" (click)="open('fri-to')" />
+        <mat-checkbox [(ngModel)]="sprechZeit.fri[2]">Open!</mat-checkbox>
+      </div>
     </div>
 
-    <button mat-stroked-button (click)="updateSprechZeiten()">update</button>
+    <button class="button" (click)="updateSprechZeiten()">update</button>
   </div>
 </div>
